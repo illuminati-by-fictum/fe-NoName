@@ -1,0 +1,5 @@
+#folders with sources after installation
+node_modules/
+#after build
+dist/	
+
