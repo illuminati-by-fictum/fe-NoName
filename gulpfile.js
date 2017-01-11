@@ -12,6 +12,7 @@ const source        = require('vinyl-source-stream');
 const buffer        = require('vinyl-buffer');
 const sass          = require('gulp-sass');
 const autoprefixer  = require('gulp-autoprefixer');
+const importCss     = require('gulp-import-css');
 
 const path = {
   dist: {
@@ -19,7 +20,7 @@ const path = {
     libs: './dist/libs',
   },
   src: {
-    js:'src/**/*.js',
+    js:'src/**/*.js*',
     css:'src/**/*.css',
     all:'src/**/*',
     html:"src/*.html"
@@ -47,8 +48,10 @@ const tasks = {
 
 gulp.task(tasks.jsBuild , () => {
   try{
-    return browserify({entries: 'src/js/index.js', debug: true})
-              .transform(babelify,{ "presets": ["es2015"] })
+    return browserify({entries: 'src/js/index.js', 
+              extensions: ['.js', '.jsx'],
+              debug: true})
+              .transform('babelify', {presets: ["es2015", "react", "stage-0"]})
               .bundle()
               .pipe(source('all.js'))
               .pipe(buffer())
@@ -62,12 +65,13 @@ gulp.task(tasks.jsBuild , () => {
 
 gulp.task(tasks.cssBuild, function () {
   gulp.src(path.src.css)
-     .pipe(sourcemaps.init({loadMaps: true}))
-     .pipe(sass({debug:true}))
-     .pipe(autoprefixer())
-     .pipe(sourcemaps.write('./maps'))
-     .pipe(gulp.dest(path.dist.js))
-     .pipe(connect.reload());
+      .pipe(sourcemaps.init({loadMaps: true}))
+      .pipe(importCss())
+      .pipe(sass({debug:true}))
+      .pipe(autoprefixer())
+      .pipe(sourcemaps.write('./maps'))
+      .pipe(gulp.dest(path.dist.js))
+      .pipe(connect.reload());
 });
 
 gulp.task(tasks.htmlBuild, function() {
