@@ -1,24 +1,41 @@
-g.type-se > circle {
-  fill: #00ffd0; }
+.chat {
+  list-style: none;
+  margin: 0;
+  padding: 0; }
 
-text > tspan {
-  -webkit-text-decoration-color: red;
-          text-decoration-color: red;
-  font-weight: 300;
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serf;
-  font-size: 14px; }
+.chat li {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px dotted #B3A9A9; }
 
-.node rect {
-  stroke: #999;
-  fill: #fff;
-  stroke-width: 1.5px; }
+.chat li.left .chat-body {
+  margin-left: 60px; }
 
-.node {
-  cursor: pointer; }
+.chat li.right .chat-body {
+  margin-right: 60px; }
 
-.edgePath path {
-  stroke: #333;
-  stroke-width: 1.5px;
-  cursor: pointer; }
+.chat li .chat-body p {
+  margin: 0;
+  color: #777777; }
+
+.panel .slidedown .glyphicon,
+.chat .glyphicon {
+  margin-right: 5px; }
+
+.panel-body {
+  overflow-y: scroll;
+  height: 250px; }
+
+::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #F5F5F5; }
+
+::-webkit-scrollbar {
+  width: 12px;
+  background-color: #F5F5F5; }
+
+::-webkit-scrollbar-thumb {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #555; }
 
 /*# sourceMappingURL=../maps/css/index.css.map */

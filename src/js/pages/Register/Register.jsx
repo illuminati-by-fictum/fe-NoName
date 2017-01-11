@@ -45,10 +45,10 @@ export class Register extends Component {
 
 				    <FormGroup controlId="formHorizontalPassword">
 				     	<Col componentClass={ControlLabel} sm={2}>
-				        	Password
+				        	Confirm
 					    </Col>
 					    <Col sm={8}>
-					    	<FormControl type="password" placeholder="Password" />
+					    	<FormControl type="password" placeholder="Сonfirm password" />
 					    </Col>
 				    </FormGroup>
 
@@ -58,7 +58,7 @@ export class Register extends Component {
 					          	Register
 					        </Button>
 				       </Col>
-				    </FormGroup>
+				    </FormGroup> й
 
 				    <RegisterSuccess 
 				    		show={this.state&&this.state.showSuccessModal?this.state.showSuccessModal:false}
