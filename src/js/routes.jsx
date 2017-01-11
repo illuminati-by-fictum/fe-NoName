@@ -3,6 +3,7 @@ import { Router, Route, IndexRoute, Link, hashHistory } from 'react-router'
 import App 		from './pages/App';
 import Chat 	from './pages/Chat';
 import Login 	from './pages/Login';
+import Register from './pages/Register';
 
 
 export default (
@@ -11,6 +12,7 @@ export default (
 	    	<IndexRoute component={Chat}/>
 	    </Route>
 		<Route component={Login} path='login'/>
+		<Route component={Register} path='register'/>
 	  	<Route component={Chat} path='chat'/>
     </Router>
 );
