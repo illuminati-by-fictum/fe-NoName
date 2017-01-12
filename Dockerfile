@@ -14,11 +14,13 @@ RUN apt-get install -y nodejs-legacy
 RUN apt-get install -y build-essential
 RUN apt-get install -y npm
 
-RUN ls -la
 COPY ./ /src/
 
-RUN cd /src && npm install && ls -la
+RUN cd /src && npm install
 
 
 EXPOSE 9000
 CMD ["npm", "start"]
+	
+
+
